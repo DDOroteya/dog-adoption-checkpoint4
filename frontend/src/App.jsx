@@ -4,9 +4,9 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="text-5xl text-center">
       <Home />
-      <p>coucou</p>
+      <p className="text-yellow-500">coucou</p>
     </div>
   );
 }
