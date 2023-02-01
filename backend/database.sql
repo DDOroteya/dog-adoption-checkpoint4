@@ -79,13 +79,13 @@ CREATE TABLE `user` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(400) NOT NULL,
   `phone_number` VARCHAR(45) NULL,
-  `hashedPassword` VARCHAR(450) NULL,
+  `password` VARCHAR(450) NULL,
   `adress` VARCHAR(450) NULL,
   `is_admin` TINYINT NULL DEFAULT 0,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `user`(firstname, lastname, email, phone_number, hashedPassword, adress, is_admin) VALUES 
+INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, is_admin) VALUES 
   (
     'Ivan',
     'Ivanov',
@@ -95,21 +95,21 @@ INSERT INTO `user`(firstname, lastname, email, phone_number, hashedPassword, adr
     '27 rue Pierre-Pertit 75000 Paris',
     0,
   ),(
+    'Doroteya',
+    'Donova',
+    'doroteya.donova@gmail.com',
+    '0782446798',
+    NULL,
+    '27 rue Pierre-Pertit 75000 Paris',
+    1
+  ),(
     'Sophia',
     'Rio',
     'soph.rio@gmail.com',
     '0689774368',
     NULL,
     '12 rue Saint-Blandine 69001 Lyon',
-    0,
-  ),(
-      'Elisa',
-      'Rogger',
-      'e.rogger@gmail.com',
-      '0782566754',
-      '$argon2id$v=19$m=65536,t=5,p=1$ckHQT5Nhkj69L6VsFUW5zA$CIPJdMK/J9L3P9xvLzyHzX8NGvdBAxWwN5iMl8b2xNc',
-      '27 rue Padré-Petit 31000 Toulouse',
-       1,
+    0
   );
 
 
