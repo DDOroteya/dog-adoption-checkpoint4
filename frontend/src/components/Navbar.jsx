@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 function Navbar() {
   return (
     <div>
-      <div className="bg-navbar flex justify-between items-center shadow-xl">
+      <div className="bg-navbar flex justify-between items-center shadow-lg">
         <Link to="/">
           <img src={logo} alt="Logo" className="w-28 h-28" />
         </Link>

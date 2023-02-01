@@ -72,8 +72,8 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     'https://www.la-spa.fr/app/assets-spa/uploads/animals/20603/hasko-vaa22462-20603-63b159252b62d.jpg'
   );
 
-DROP TABLE IF EXISTS `person` ;
-CREATE TABLE `person` (
+DROP TABLE IF EXISTS `user` ;
+CREATE TABLE `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(200) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `person` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `person`(firstname, lastname, email, phone_number, password, adress, is_admin) VALUES 
+INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, is_admin) VALUES 
   (
     'Doroteya',
     'Donova',
@@ -108,10 +108,10 @@ INSERT INTO `person`(firstname, lastname, email, phone_number, password, adress,
 DROP TABLE IF EXISTS `adoption` ;
 CREATE TABLE `adoption` (
   `dog_id` INT NOT NULL,
-  `person_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   `adoption_date` DATE NOT NULL,
   FOREIGN KEY (dog_id) REFERENCES dog(id),
-  FOREIGN KEY (person_id) REFERENCES person(id)
+  FOREIGN KEY (user_id) REFERENCES user(id)
 )
 ENGINE = InnoDB;
 

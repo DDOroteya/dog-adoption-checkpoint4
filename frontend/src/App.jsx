@@ -5,10 +5,10 @@ import Adoption from "./pages/Adoption";
 import About from "./pages/About";
 import Admin from "./pages/Admin";
 import EditDog from "./components/Admin/EditDog";
-
-import "./App.css";
 import AddDog from "./components/Admin/AddDog";
 import AdminDogManagement from "./components/Admin/AdminDogManagement";
+import Login from "./pages/Login";
+import "./App.css";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/about" element={<About />} />
         <Route path="/adoption/:dogId" element={<DogItem />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/dogs" element={<AdminDogManagement />} />
         <Route path="/admin/newdog" element={<AddDog />} />

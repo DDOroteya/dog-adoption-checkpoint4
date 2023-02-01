@@ -7,8 +7,8 @@ class DogManager extends AbstractManager {
 
   insert(dog) {
     return this.connection.query(
-      `INSERT INTO ${this.table} (name, breed, gender, age, birthday_date, location, status_adopted)
-    VALUES(?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (name, breed, gender, age, birthday_date, location, status_adopted, picture)
+    VALUES(?,?,?,?,?,?,?,?)`,
       [
         dog.name,
         dog.breed,
@@ -17,6 +17,7 @@ class DogManager extends AbstractManager {
         dog.birthday_date,
         dog.location,
         dog.status_adopted,
+        dog.picture,
       ]
     );
   }
