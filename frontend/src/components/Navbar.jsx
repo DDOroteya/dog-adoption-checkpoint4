@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   return (
-    <div className="bg-navbar flex justify-between items-center shadow-md">
+    <div className="bg-navbar flex justify-between items-center shadow-lg">
       <Link to="/">
-        <img src="./src/assets/logo.png" alt="Logo" className="w-28 h-28" />
+        <img src={logo} alt="Logo" className="w-28 h-28" />
       </Link>
       <div className="flex items-center">
         <Link to="/about">

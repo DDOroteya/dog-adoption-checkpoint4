@@ -11,6 +11,9 @@ function Filtres() {
       >
         <option value="0">Localisation</option>
         <option>Lyon</option>
+        <option>Toulouse</option>
+        <option>Marseille</option>
+        <option>Montpellier</option>
       </select>
       <select
         name="Cities"
@@ -20,6 +23,7 @@ function Filtres() {
       >
         <option value="0">Genre</option>
         <option>Femelle</option>
+        <option>Mâle</option>
       </select>
       <select
         name="Cities"
@@ -28,7 +32,10 @@ function Filtres() {
         value=""
       >
         <option value="0">Age</option>
+        <option>Bébé</option>
         <option>Junior</option>
+        <option>Adulte</option>
+        <option>Senior</option>
       </select>
     </div>
   );

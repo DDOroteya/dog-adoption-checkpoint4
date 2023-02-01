@@ -8,7 +8,7 @@ CREATE TABLE `dog` (
   `breed` VARCHAR(100) NOT NULL,
   `gender` VARCHAR(45) NOT NULL,
   `age` VARCHAR(100) NOT NULL,
-  `birthday_date` VARCHAR(45) NULL,
+  `birthday_date` DATE NULL,
   `location` VARCHAR(200) NULL,
   `status_adopted` VARCHAR(45) NULL,
   `picture` VARCHAR(200) NULL,
