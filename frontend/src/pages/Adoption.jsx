@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Filtres from "../components/Filtres";
 import DogCard from "../components/DogCard";
+import Navbar from "../components/Navbar";
 
 function Adoption() {
   const [dogs, setDogs] = useState([]);
@@ -15,6 +16,7 @@ function Adoption() {
 
   return (
     <div>
+      <Navbar />
       <div className="md:flex md:justify-evenly md:sticky md:overflow-hidden">
         <h1 className="adoption-title text-center text-brown text-5xl pt-5 md:ml-5">
           Adoptez responsable
