@@ -8,7 +8,7 @@ CREATE TABLE `dog` (
   `breed` VARCHAR(100) NOT NULL,
   `gender` VARCHAR(45) NOT NULL,
   `age` VARCHAR(100) NOT NULL,
-  `birthday_date` DATE NULL,
+  `birthday_date` VARCHAR(45) NULL,
   `location` VARCHAR(200) NULL,
   `status_adopted` VARCHAR(45) NULL,
   `picture` VARCHAR(200) NULL,
@@ -34,6 +34,42 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     'Lyon',
     'No',
     'https://www.la-spa.fr/app/assets-spa/uploads/animals/58249/newton-58249-63405644a7304.jpg'
+  ),(
+    'Kobe',
+    'Terrier',
+    'Mâle',
+    'Adulte',
+    '2020-02-28',
+    'Toulouse',
+    'No',
+    'https://www.la-spa.fr/app/assets-spa/uploads/animals/31007/kobe-31007-6304a1d0558e8.jpg'
+  ),(
+    'Blue',
+    'Croisé',
+    'Mâle',
+    'Junior',
+    '2022-06-20',
+    'Montpellier',
+    'No',
+    'https://www.la-spa.fr/app/assets-spa/uploads/animals/69795/jive-69795-63d64c1228984.jpg'
+  ),(
+    'Athena',
+    'Croisé',
+    'Femelle',
+    'Bébé',
+    '2022-12-01',
+    'Montpellier',
+    'No',
+    'https://www.la-spa.fr/app/assets-spa/uploads/animals/68847/tyson-68847-63cab394d0e04.jpg'
+  ),(
+    'Saturn',
+    'Berger allemand',
+    'Mâle',
+    'Senior',
+    '2014-09-04',
+    'Toulouse',
+    'No',
+    'https://www.la-spa.fr/app/assets-spa/uploads/animals/20603/hasko-vaa22462-20603-63b159252b62d.jpg'
   );
 
 DROP TABLE IF EXISTS `person` ;
