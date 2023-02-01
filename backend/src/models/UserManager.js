@@ -14,7 +14,7 @@ class UserManager extends AbstractManager {
 
   insert(user) {
     return this.connection.query(
-      `insert into ${this.table} (firstname, lastname, email, phone_number, password, adress) values (?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, email, phone_number, password, adress, is_admin) values (?, ?, ?, ?, ?, ?, ?)`,
       [
         user.firstname,
         user.lastname,
@@ -22,6 +22,7 @@ class UserManager extends AbstractManager {
         user.phone_number,
         user.hashedPassword,
         user.adress,
+        user.is_admin,
       ]
     );
   }

@@ -86,15 +86,7 @@ CREATE TABLE `user` (
 ENGINE = InnoDB;
 
 INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, is_admin) VALUES 
-  (
-    'Ivan',
-    'Ivanov',
-    'ivan.ivanov@gmail.com',
-    '0782446798',
-    NULL,
-    '27 rue Pierre-Pertit 75000 Paris',
-    0,
-  ),(
+   (
     'Doroteya',
     'Donova',
     'doroteya.donova@gmail.com',
@@ -102,7 +94,7 @@ INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, i
     NULL,
     '27 rue Pierre-Pertit 75000 Paris',
     1
-  ),(
+  ), (
     'Sophia',
     'Rio',
     'soph.rio@gmail.com',
