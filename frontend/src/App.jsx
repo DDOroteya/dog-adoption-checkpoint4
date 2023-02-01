@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import DogItem from "./components/DogItem";
 import Adoption from "./pages/Adoption";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
 
 import "./App.css";
 
@@ -17,7 +16,6 @@ function App() {
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/about" element={<About />} />
         <Route path="/adoption/dog" element={<DogItem />} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );
