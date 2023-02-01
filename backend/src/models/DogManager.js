@@ -24,7 +24,8 @@ class DogManager extends AbstractManager {
 
   update(dog) {
     return this.connection.query(
-      `UPDATE ${this.table} SET name = ?, breed = ?, gender = ?, age = ?, birthday_date = ?, location = ?, status_adopted = ?, picture = ? WHERE id = ? `,
+      `UPDATE ${this.table} SET name = ?, breed = ?, gender = ?, age = ?, birthday_date = ?, location = ?, 
+      status_adopted = ?, picture = ? WHERE id = ? `,
       [
         dog.name,
         dog.breed,
