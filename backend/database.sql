@@ -79,13 +79,13 @@ CREATE TABLE `user` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(400) NOT NULL,
   `phone_number` VARCHAR(45) NULL,
-  `password` VARCHAR(450) NULL,
+  `hashedPassword` VARCHAR(450) NULL,
   `adress` VARCHAR(450) NULL,
   `is_admin` TINYINT NULL DEFAULT 0,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, is_admin) VALUES 
+INSERT INTO `user`(firstname, lastname, email, phone_number, hashedPassword, adress, is_admin) VALUES 
   (
     'Ivan',
     'Ivanov',
