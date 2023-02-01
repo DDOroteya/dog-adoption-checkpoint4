@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import back from "../../assets/back.png";
+import dogdefault from "../../assets/default.jpeg";
 
 function AddDog() {
   const navigate = useNavigate();
@@ -48,8 +49,8 @@ function AddDog() {
       fetch(`http://localhost:5000/api/dogs`, requestOptions)
         .then((response) => response.text())
         .then(() => {
-          navigate("/adminpanel");
-          toast.success("Ajouté à la lite avec succès !", {
+          navigate("/admin/dogs");
+          toast.success("Ajouté à la liste avec succès !", {
             position: "top-center",
             autoClose: 3000,
             hideProgressBar: false,
@@ -64,7 +65,7 @@ function AddDog() {
   return (
     <div>
       <div className="h-screen w-screen overflow-y-scroll md:overflow-hidden">
-        <Link to="/adminpanel">
+        <Link to="/admin/dogs">
           <div className="flex items-center justify-start pt-5 ml-4">
             <img src={back} alt="Back arrow" className="w-5 h-5" />
             <button type="button" className="ml-2 text-lg cursor-pointer">
@@ -78,7 +79,7 @@ function AddDog() {
         <div className="flex justify-center mb-4">
           <img
             className="self-start w-28 h-28 border-4 border-violet mr-4"
-            src="./src/assets/default.jpeg"
+            src={dogdefault}
             alt="Dog"
           />
           <div className="flex flex-col justify-evenly">

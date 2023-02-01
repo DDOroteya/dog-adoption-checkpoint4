@@ -21,7 +21,7 @@ function AdminDogsList() {
 
   return (
     <div className="sm:p-7 flex flex-wrap">
-      <Link to="/addnewdog">
+      <Link to="/admin/newdog">
         <button
           className="text-green-600 md:w-32 text-center font-bold p-2 mb-3 mt-5 ml-3 md:ml-0 md:mt-0 flex border border-green-600 rounded-xl hover:border-green-800 hover:bg-green-800 hover:text-white"
           type="button"

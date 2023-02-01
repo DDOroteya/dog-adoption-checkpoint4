@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,7 +9,7 @@ function AdminDogItem({ dog, deleteFromPostWithId }) {
     axios
       .delete(`http://localhost:5000/api/dogs/${dog.id}`)
       .then(() => {
-        toast.success("Carte chien supprimée !", {
+        toast.success("Fiche chien supprimée !", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -49,9 +50,11 @@ function AdminDogItem({ dog, deleteFromPostWithId }) {
         {dog.status_adopted}
       </th>
       <th className="rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none">
-        <button className="text-blue-500 p-2 mb-2 flex" type="button">
-          Modifier
-        </button>
+        <Link to={`/admin/editdog/${dog.id}`}>
+          <button className="text-blue-500 p-2 mb-2 flex" type="button">
+            Modifier
+          </button>
+        </Link>
         <button
           onClick={() => handleDelete()}
           className="text-red-400 p-2 flex"
