@@ -1,10 +1,10 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.item
+  models.dog
     .findAll()
-    .then(([rows]) => {
-      res.send(rows);
+    .then(([results]) => {
+      res.send(results);
     })
     .catch((err) => {
       console.error(err);
@@ -13,13 +13,15 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.item
-    .find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
-        res.sendStatus(404);
+  const id = parseInt(req.params.id, 10);
+
+  models.dog
+    .find(id)
+    .then(([result]) => {
+      if (result[0]) {
+        res.send(result[0]);
       } else {
-        res.send(rows[0]);
+        res.status(404).send("Dog not found");
       }
     })
     .catch((err) => {
@@ -29,19 +31,16 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const item = req.body;
+  const dog = req.body;
+  dog.id = parseInt(req.params.id, 10);
 
-  // TODO validations (length, format...)
-
-  item.id = parseInt(req.params.id, 10);
-
-  models.item
-    .update(item)
+  models.dog
+    .update(dog)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        res.sendStatus(404);
+        res.status(404).send("Dog not found");
       } else {
-        res.sendStatus(204);
+        res.status(200).json(dog);
       }
     })
     .catch((err) => {
@@ -51,14 +50,16 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const item = req.body;
+  const dog = JSON.parse(req.body.dog);
+  dog.picture = req.renamedFile;
 
-  // TODO validations (length, format...)
-
-  models.item
-    .insert(item)
+  models.dog
+    .insert(dog)
     .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201);
+      res
+        .location(`/api/dogs/${result.insertId}`)
+        .status(201)
+        .send({ status: "Dog created", data: dog });
     })
     .catch((err) => {
       console.error(err);
@@ -67,13 +68,13 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.item
+  models.dog
     .delete(req.params.id)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
+    .then(([rows]) => {
+      if (rows.affectedRows === 0) {
+        res.status(404).send("Dog not found");
       } else {
-        res.sendStatus(204);
+        res.status(201).send("Dog deleted");
       }
     })
     .catch((err) => {
