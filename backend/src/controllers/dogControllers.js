@@ -50,7 +50,8 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const dog = req.body;
+  const dog = JSON.parse(req.body.dog);
+  dog.picture = req.renamedFile;
 
   models.dog
     .insert(dog)

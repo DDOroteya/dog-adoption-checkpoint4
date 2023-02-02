@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { useCurrentUserContext } from "../../contexts/userContext";
 import back from "../../assets/back.png";
 
+const backEnd = import.meta.env.VITE_BACKEND_URL;
+
 function EditDog() {
+  const { token } = useCurrentUserContext();
   const { dogId } = useParams();
   const [dogData, setDogData] = useState({});
   const navigate = useNavigate();
@@ -24,6 +28,7 @@ function EditDog() {
   const onSubmit = (e) => {
     e.preventDefault();
     const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
     myHeaders.append("Content-Type", "application/json");
 
     const body = JSON.stringify(dogData);
@@ -73,7 +78,7 @@ function EditDog() {
         >
           <img
             className="w-full md:w-2/5 object-cover"
-            src={dogData.picture}
+            src={`${backEnd}/uploads/${dogData.picture}`}
             alt="Dog"
           />
           <div className="flex flex-col justify-center items-center mt-5 md:mt-0">

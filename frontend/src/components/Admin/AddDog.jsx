@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +7,8 @@ import dogdefault from "../../assets/default.jpeg";
 
 function AddDog() {
   const navigate = useNavigate();
+
+  const inputRef = useRef(null);
 
   const [dataDog, setDataDog] = useState({
     name: "",
@@ -18,25 +20,15 @@ function AddDog() {
     status_adopted: "",
   });
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
     setDataDog({
       ...dataDog,
       [e.target.name]: e.target.value,
     });
   };
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    const body = JSON.stringify(dataDog);
-
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body,
-    };
     if (
       dataDog.name &&
       dataDog.breed &&
@@ -46,6 +38,19 @@ function AddDog() {
       dataDog.location &&
       dataDog.status_adopted
     ) {
+      const myHeaders = new Headers();
+
+      const dog = JSON.stringify(dataDog);
+
+      const formData = new FormData();
+      formData.append("dog", dog);
+      formData.append("picture", inputRef.current.files[0]);
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formData,
+      };
+
       fetch(`http://localhost:5000/api/dogs`, requestOptions)
         .then((response) => response.text())
         .then(() => {
@@ -76,25 +81,27 @@ function AddDog() {
         <h1 className="text-[40px] text-[#15133C] font-bold text-center pb-8 mt-8">
           Ajouter un chien à la liste
         </h1>
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center items-center mb-4">
           <img
             className="self-start w-28 h-28 border-4 border-violet mr-4"
             src={dogdefault}
             alt="Dog"
           />
-          <div className="flex flex-col justify-evenly">
-            <button
-              type="button"
-              className="bg-[#15133C] text-white py-3 px-[2.5rem] rounded-[20px]"
-            >
-              Ajouter une photo
-            </button>
-          </div>
+          <label>
+            <input
+              type="file"
+              id="image-upload"
+              name="avatar"
+              ref={inputRef}
+              value={dataDog.picture}
+              className=""
+            />
+          </label>
         </div>
         <form
-          onSubmit={(e) => onSubmit(e)}
+          onSubmit={handleSubmit}
           method="PUT"
-          className="md:grid md:grid-cols-2 justify-center items-center flex flex-col"
+          className="md:grid md:grid-cols-2 md:gap-x-12 xl:gap-x-0 justify-center items-center flex flex-col"
         >
           <label className="flex w-1/2 mx-auto text-[#15133C] flex-col text-xl mb-2">
             Nom
@@ -103,7 +110,7 @@ function AddDog() {
               type="text"
               name="name"
               value={dataDog.name}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Exemple : Johnny"
             />
           </label>
@@ -114,7 +121,7 @@ function AddDog() {
               type="text"
               name="breed"
               value={dataDog.breed}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Exemple : Croisé"
             />
           </label>
@@ -125,7 +132,7 @@ function AddDog() {
               type="text"
               name="gender"
               value={dataDog.gender}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Femelle / Mâle"
             />
           </label>
@@ -136,7 +143,7 @@ function AddDog() {
               type="text"
               name="age"
               value={dataDog.age}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Bébé / Junior / Adulte / Senior"
             />
           </label>
@@ -147,7 +154,7 @@ function AddDog() {
               type="text"
               name="birthday_date"
               value={dataDog.birthday_date}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Exemple : 2020-02-02"
             />
           </label>
@@ -158,7 +165,7 @@ function AddDog() {
               type="text"
               name="location"
               value={dataDog.location}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Lyon / Marseille / Toulouse"
             />
           </label>
@@ -169,7 +176,7 @@ function AddDog() {
               type="text"
               name="status_adopted"
               value={dataDog.status_adopted}
-              onChange={onChange}
+              onChange={handleChange}
               placeholder="Oui / non"
             />
           </label>

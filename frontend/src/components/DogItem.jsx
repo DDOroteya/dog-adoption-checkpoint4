@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import back from "../assets/back.png";
 
+const backEnd = import.meta.env.VITE_BACKEND_URL;
+
 function DogItem() {
   const [dogData, setDogData] = useState({});
   const { dogId } = useParams();
@@ -29,7 +31,7 @@ function DogItem() {
       </h1>
       <div className="md:flex md:justify-center">
         <img
-          src={dogData.picture}
+          src={`${backEnd}/uploads/${dogData.picture}`}
           alt="Dog card"
           className="w-full md:w-2/4 md:m-0 m-auto rounded-xl"
         />

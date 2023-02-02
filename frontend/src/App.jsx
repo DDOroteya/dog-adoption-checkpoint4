@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { CurrentUserContextProvider } from "./contexts/userContext";
+import { DogContextProvider } from "./contexts/DogContext";
 import Home from "./pages/Home";
 import DogItem from "./components/DogItem";
 import Adoption from "./pages/Adoption";
@@ -13,17 +15,21 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/adoption" element={<Adoption />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/adoption/:dogId" element={<DogItem />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/dogs" element={<AdminDogManagement />} />
-        <Route path="/admin/newdog" element={<AddDog />} />
-        <Route path="/admin/editdog/:dogId" element={<EditDog />} />
-      </Routes>
+      <CurrentUserContextProvider>
+        <DogContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/adoption" element={<Adoption />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/adoption/:dogId" element={<DogItem />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/dogs" element={<AdminDogManagement />} />
+            <Route path="/admin/newdog" element={<AddDog />} />
+            <Route path="/admin/editdog/:dogId" element={<EditDog />} />
+          </Routes>
+        </DogContextProvider>
+      </CurrentUserContextProvider>
     </div>
   );
 }

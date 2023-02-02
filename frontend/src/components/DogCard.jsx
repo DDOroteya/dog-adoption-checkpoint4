@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const backEnd = import.meta.env.VITE_BACKEND_URL;
+
 function DogCard({ dog }) {
   return (
     <div className="ml-6 md:grid xl:grid-cols-3 md:gird-cols-2 md:ml-20">
@@ -8,7 +10,7 @@ function DogCard({ dog }) {
         <div className="bg-white md:w-72 md:h-80 mr-6 shadow-xl border-t border-gray-100 mt-7 rounded-[20px]">
           <div>
             <img
-              src={dog.picture}
+              src={`${backEnd}/uploads/${dog.picture}`}
               alt="Dog card"
               className="w-full md:h-48 md:object-cover rounded-t-xl"
             />

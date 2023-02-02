@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Filtres from "../components/Filtres";
 import DogCard from "../components/DogCard";
 import Navbar from "../components/Navbar";
+import { useDogContext } from "../contexts/DogContext";
 
 function Adoption() {
   const [dogs, setDogs] = useState([]);
+  const { city, gender, age } = useDogContext();
 
   useEffect(() => {
     fetch("http://localhost:5000/api/dogs")
@@ -29,9 +31,13 @@ function Adoption() {
         <div className="flex flex-col md:mt-10">
           <Filtres />
           <div className="max-h-screen md:grid md:grid-cols-2 md:overflow-y-auto md:overflow-x-hidden">
-            {dogs.map((dog) => (
-              <DogCard key={dog.id} dog={dog} />
-            ))}
+            {dogs
+              .filter((dog) => city === "" || city === dog.location)
+              .filter((dog) => gender === "" || gender === dog.gender)
+              .filter((dog) => age === "" || age === dog.age)
+              .map((dog) => (
+                <DogCard key={dog.id} dog={dog} />
+              ))}
           </div>
         </div>
       </div>

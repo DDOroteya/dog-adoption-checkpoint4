@@ -1,9 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AdminDogsList from "./AdminDogsList";
 
 export default function AdminDogManagement() {
   return (
     <div>
+      <Link to="/">
+        <h1 className="flex justify-end items-center pt-3 mr-4">
+          Se déconnecter
+        </h1>
+      </Link>
       <div className="flex-grow bg-white dark:bg-gray-900 overflow-y-auto">
         <div className="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 sticky">
           <div className="flex w-full items-center">

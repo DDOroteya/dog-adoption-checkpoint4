@@ -24,7 +24,7 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     '2021-02-02',
     'Marseille',
     'No',
-    'https://www.la-spa.fr/app/assets-spa/uploads/animals/69487/megane-69487-63d28de1acc61.jpg'
+    'beliga.jpeg'
   ),(
     'Mars',
     'American staffordshire',
@@ -33,7 +33,7 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     '2017-03-06',
     'Lyon',
     'No',
-    'https://www.la-spa.fr/app/assets-spa/uploads/animals/58249/newton-58249-63405644a7304.jpg'
+    'mars.jpeg'
   ),(
     'Kobe',
     'Terrier',
@@ -42,7 +42,7 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     '2020-02-28',
     'Toulouse',
     'No',
-    'https://www.la-spa.fr/app/assets-spa/uploads/animals/31007/kobe-31007-6304a1d0558e8.jpg'
+    'kobe.jpeg'
   ),(
     'Blue',
     'Croisé',
@@ -51,7 +51,7 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     '2022-06-20',
     'Montpellier',
     'No',
-    'https://www.la-spa.fr/app/assets-spa/uploads/animals/69795/jive-69795-63d64c1228984.jpg'
+    'blue.jpeg'
   ),(
     'Athena',
     'Croisé',
@@ -60,7 +60,7 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     '2022-12-01',
     'Montpellier',
     'No',
-    'https://www.la-spa.fr/app/assets-spa/uploads/animals/68847/tyson-68847-63cab394d0e04.jpg'
+    'athena.jpeg'
   ),(
     'Saturn',
     'Berger allemand',
@@ -69,7 +69,7 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     '2014-09-04',
     'Toulouse',
     'No',
-    'https://www.la-spa.fr/app/assets-spa/uploads/animals/20603/hasko-vaa22462-20603-63b159252b62d.jpg'
+    'saturn.jpeg'
   );
 
 DROP TABLE IF EXISTS `user` ;
@@ -87,13 +87,13 @@ ENGINE = InnoDB;
 
 INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, is_admin) VALUES 
    (
-    'Doroteya',
-    'Donova',
-    'doroteya.donova@gmail.com',
+    'Emile',
+    'Lucci',
+    'emile.lucci@gmail.com',
     '0782446798',
     NULL,
     '27 rue Pierre-Pertit 75000 Paris',
-    1
+    0
   ), (
     'Sophia',
     'Rio',
@@ -101,6 +101,70 @@ INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, i
     '0689774368',
     NULL,
     '12 rue Saint-Blandine 69001 Lyon',
+    0
+  ),(
+    'Leo',
+    'Make',
+    'leo.make@hotmail.com',
+    '0632456791',
+    NULL,
+    '2 rue Saint-Lazare 31000 Toulouse',
+    0
+  ),(
+    'Maria',
+    'Drens',
+    'maria.maria@outlook.com',
+    '0632494991',
+    NULL,
+    '78 rue Miribel 34000 Montpellier',
+    0
+  ),(
+    'Angèle',
+    'Donnatan',
+    'a.donnatan@gmail.com',
+    '0698446756',
+    NULL,
+    '7 rue Victor Hugo 75000 Paris',
+    0
+  ), (
+    'Arthur',
+    'Rime',
+    'arthur.rime@gmail.com',
+    '068673489',
+    NULL,
+    '11 rue Duphot 69003 Lyon',
+    0
+  ),(
+    'Kaloyan',
+    'Regnev',
+    'k.regnev@hotmail.com',
+    '0689765423',
+    NULL,
+    '89 rue Saint-Dominique 34000 Montpellier',
+    0
+  ),(
+    'Lora',
+    'Lemartin',
+    'elisa.lemartin@outlook.com',
+    '06324946591',
+    NULL,
+    '784 avenue Montaigne 31000 Toulouse',
+    0
+  ),(
+    'Elisa',
+    'Rogger',
+    'e.rogger@gmail.com',
+    '0782566754',
+    '$argon2id$v=19$m=65536,t=5,p=1$JtodZy+9XNZzaXUF/6ySOQ$2Uzg5kKlBfZqFdQurLRnc3bRhqAIReGdJzAzJk25VEU',
+    '27 rue Padré-Petit 31000 Toulouse',
+    1
+  ),(
+    'Ross',
+    'Chris',
+    'ross.ross@outlook.com',
+    '06324946587',
+    NULL,
+    'Avenue Saint Elise 69005 Lyon',
     0
   );
 
