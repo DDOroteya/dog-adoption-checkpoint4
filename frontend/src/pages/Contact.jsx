@@ -29,35 +29,35 @@ function Contact() {
       </p>
       <form className="w-96 md:w-1/2 m-auto flex flex-col items-center justify-center">
         <input
-          className="bg-navbar rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8"
+          className="bg-[#F2EDED] rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8"
           type="text"
           placeholder="Nom... *"
           name="firstname"
           onChange={handleChange}
         />
         <input
-          className="bg-navbar rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8"
+          className="bg-[#F2EDED] rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8"
           type="text"
           placeholder="Prénom... *"
           name="lastname"
           onChange={handleChange}
         />
         <input
-          className="bg-navbar rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8"
+          className="bg-[#F2EDED] rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8 mb-5"
           type="text"
           placeholder="Email... *"
           name="email"
           onChange={handleChange}
         />
         <input
-          className="bg-navbar rounded-xl mt-8 h-[3em] md:text-xl w-full pl-8 mb-5"
+          className="bg-[#F2EDED] rounded-xl mt-2 h-[3em] md:text-xl w-full pl-8 mb-5"
           type="text"
           placeholder="Téléphone... *"
           name="phone"
           onChange={handleChange}
         />
         <input
-          className="bg-navbar rounded-xl h-60 md:text-xl w-full pl-8 mb-5"
+          className="bg-[#F2EDED] rounded-xl h-60 md:text-xl w-full pl-8 mb-5"
           type="text"
           name="message"
           placeholder="Votre message... *"
