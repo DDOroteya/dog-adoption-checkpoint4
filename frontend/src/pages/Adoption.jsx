@@ -32,6 +32,7 @@ function Adoption() {
           <Filtres />
           <div className="max-h-screen md:grid md:grid-cols-2 md:overflow-y-auto md:overflow-x-hidden">
             {dogs
+              .filter((dog) => dog.status_adopted === "No")
               .filter((dog) => city === "" || city === dog.location)
               .filter((dog) => gender === "" || gender === dog.gender)
               .filter((dog) => age === "" || age === dog.age)

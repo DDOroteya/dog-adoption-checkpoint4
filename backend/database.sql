@@ -212,11 +212,20 @@ INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, i
     NULL,
     'Avenue Saint Elise 69005 Lyon',
     0
+  ),(
+    'Elisa',
+    'Rogger',
+    'e.rogger@gmail.com',
+    '0782566754',
+    '$argon2id$v=19$m=65536,t=5,p=1$AVHJpftW8oy80rEjOQ9Jog$Yu+q8Zq4tzXmqCO+tFR4NVXli7axTUJntLD5XxPJ170',
+    '27 rue Padré-Petit 31000 Toulouse',
+    1
   );
 
 
 DROP TABLE IF EXISTS `adoption` ;
 CREATE TABLE `adoption` (
+  `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `dog_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `adoption_date` VARCHAR(45) NOT NULL,

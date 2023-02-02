@@ -13,6 +13,7 @@ import AdminUserList from "./components/Admin/AdminUsers/AdminUserList";
 import AdminAdoptionsList from "./components/Admin/AdminAdoptions/AdminAdoptionsList";
 import AddUser from "./components/Admin/AdminUsers/AddUser";
 import EditUser from "./components/Admin/AdminUsers/EditUser";
+import Contact from "./pages/Contact";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/adoption" element={<Adoption />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/adoption/:dogId" element={<DogItem />} />
             <Route path="/login" element={<Login />} />
             <Route path="admin/dogs" element={<AdminDogsList />} />
