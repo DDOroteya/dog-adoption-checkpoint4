@@ -70,6 +70,60 @@ INSERT INTO `dog`(name, breed, gender, age, birthday_date, location, status_adop
     'Toulouse',
     'No',
     'saturn.jpeg'
+  ),(
+    'Start',
+    'Croisé',
+    'Mâle',
+    'Bébé',
+    '2023-11-03',
+    'Lyon',
+    'No',
+    'start.jpeg'
+  ),(
+    'Zelda',
+    'Berger',
+    'Femelle',
+    'Junior',
+    '2022-08-15',
+    'Paris',
+    'No',
+    'chester.jpeg'
+  ),(
+    'Pepito',
+    'Croisé',
+    'Mâle',
+    'Bébé',
+    '2023-09-17',
+    'Montpellier',
+    'No',
+    'pepito.jpeg'
+  ),(
+    'Sandra',
+    'Husky',
+    'Femelle',
+    'Senior',
+    '2018-09-17',
+    'Toulouse',
+    'No',
+    'sandra.jpeg'
+  ),(
+    'Uranus',
+    'Berger croisé',
+    'Mâle',
+    'Bébé',
+    '2023-01-15',
+    'Lyon',
+    'No',
+    'uranus.jpeg'
+  ),(
+    'Wolverine',
+    'Corse',
+    'Femelle',
+    'Bébé',
+    '2022-12-31',
+    'Marseille',
+    'No',
+    'wolverine.jpeg'
   );
 
 DROP TABLE IF EXISTS `user` ;
@@ -151,14 +205,6 @@ INSERT INTO `user`(firstname, lastname, email, phone_number, password, adress, i
     '784 avenue Montaigne 31000 Toulouse',
     0
   ),(
-    'Elisa',
-    'Rogger',
-    'e.rogger@gmail.com',
-    '0782566754',
-    '$argon2id$v=19$m=65536,t=5,p=1$JtodZy+9XNZzaXUF/6ySOQ$2Uzg5kKlBfZqFdQurLRnc3bRhqAIReGdJzAzJk25VEU',
-    '27 rue Padré-Petit 31000 Toulouse',
-    1
-  ),(
     'Ross',
     'Chris',
     'ross.ross@outlook.com',
@@ -173,11 +219,12 @@ DROP TABLE IF EXISTS `adoption` ;
 CREATE TABLE `adoption` (
   `dog_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  `adoption_date` DATE NOT NULL,
+  `adoption_date` VARCHAR(45) NOT NULL,
   FOREIGN KEY (dog_id) REFERENCES dog(id),
   FOREIGN KEY (user_id) REFERENCES user(id)
 )
 ENGINE = InnoDB;
+
 
 SET FOREIGN_KEY_CHECKS = 1;
 
