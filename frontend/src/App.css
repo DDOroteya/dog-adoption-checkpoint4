@@ -15,3 +15,11 @@
 .adoption-title {
   font-family: "Amatic SC", serif;
 }
+
+.svg-arrow {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 4% bottom 45%;
+  background-size: auto 1em;
+  background-image: url("./assets/down-arrow-pink.png");
+}

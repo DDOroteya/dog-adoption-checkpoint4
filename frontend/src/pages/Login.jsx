@@ -40,7 +40,7 @@ function Login() {
         .then((result) => {
           setUser(result.user);
           setToken(result.token);
-          navigate("/admin");
+          navigate("/admin/dogs");
         })
 
         .catch(console.error);
