@@ -1,8 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function About() {
   return (
     <div>
+      <Navbar />
       <h1 className="text-brown mt-5 text-2xl md:text-3xl text-center">
         A propos de nous
       </h1>

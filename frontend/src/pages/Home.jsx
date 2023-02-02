@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BannerHome from "../components/BannerHome";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <div className="h-screen">
+      <Navbar />
       <BannerHome />
       <main className="px-12 py-6 md:py-16 bg-violet">
         <h2 className="text-black font-medium text-xl md:text-2xl lg:text-3xl mb-3">
