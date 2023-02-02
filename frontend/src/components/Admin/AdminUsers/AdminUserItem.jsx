@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useCurrentUserContext } from "../../contexts/userContext";
+import { useCurrentUserContext } from "../../../contexts/userContext";
 
-function AdminDogItem({ dog, deleteFromPostWithId }) {
+function AdminUserItem({ user, deleteFromPostWithId }) {
   const { token } = useCurrentUserContext();
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:5000/api/dogs/${dog.id}`, {
+      .delete(`http://localhost:5000/api/users/${user.id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -17,14 +17,14 @@ function AdminDogItem({ dog, deleteFromPostWithId }) {
         },
       })
       .then(() => {
-        toast.success("Fiche chien supprimée !", {
+        toast.success("Fiche utilisateur supprimée !", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
         });
-        deleteFromPostWithId(dog.id);
+        deleteFromPostWithId(user.id);
       })
 
       .catch((err) => {
@@ -37,28 +37,23 @@ function AdminDogItem({ dog, deleteFromPostWithId }) {
   return (
     <tr className="text-gray-400">
       <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
-        {dog.name}
+        {user.firstname}
       </th>
       <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
-        {dog.breed}
+        {user.lastname}
       </th>
       <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
-        {dog.gender}
+        {user.email}
       </th>
       <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
-        {dog.age}
+        {user.phone_number}
       </th>
       <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-        {dog.birthday_date}
+        {user.adress}
       </th>
-      <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-        {dog.location}
-      </th>
-      <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-        {dog.status_adopted}
-      </th>
+
       <th className="rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none">
-        <Link to={`/admin/editdog/${dog.id}`}>
+        <Link to={`/admin/edituser/${user.id}`}>
           <button className="text-blue-500 p-2 mb-2 flex" type="button">
             Modifier
           </button>
@@ -75,4 +70,4 @@ function AdminDogItem({ dog, deleteFromPostWithId }) {
   );
 }
 
-export default AdminDogItem;
+export default AdminUserItem;

@@ -2,10 +2,12 @@ import React, { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useCurrentUserContext } from "../../contexts/userContext";
 import back from "../../assets/back.png";
 import dogdefault from "../../assets/default.jpeg";
 
 function AddDog() {
+  const { token } = useCurrentUserContext();
   const navigate = useNavigate();
 
   const inputRef = useRef(null);
@@ -39,6 +41,7 @@ function AddDog() {
       dataDog.status_adopted
     ) {
       const myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${token}`);
 
       const dog = JSON.stringify(dataDog);
 
@@ -55,7 +58,7 @@ function AddDog() {
         .then((response) => response.text())
         .then(() => {
           navigate("/admin/dogs");
-          toast.success("Ajouté à la liste avec succès !", {
+          toast("Ajouté à la liste avec succès !", {
             position: "top-center",
             autoClose: 3000,
             hideProgressBar: false,
@@ -104,7 +107,7 @@ function AddDog() {
           className="md:grid md:grid-cols-2 md:gap-x-12 xl:gap-x-0 justify-center items-center flex flex-col"
         >
           <label className="flex w-1/2 mx-auto text-[#15133C] flex-col text-xl mb-2">
-            Nom
+            Nom :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-gray-300"
               type="text"

@@ -29,7 +29,6 @@ const read = (req, res) => {
 
 const add = (req, res) => {
   const user = req.body;
-
   models.user
     .insert(user)
     .then(([result]) => {
