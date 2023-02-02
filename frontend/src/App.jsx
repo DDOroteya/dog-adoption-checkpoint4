@@ -12,6 +12,7 @@ import AdminDogsList from "./components/Admin/AdminDogsList";
 import AdminUserList from "./components/Admin/AdminUsers/AdminUserList";
 import AdminAdoptionsList from "./components/Admin/AdminAdoptions/AdminAdoptionsList";
 import AddUser from "./components/Admin/AdminUsers/AddUser";
+import EditUser from "./components/Admin/AdminUsers/EditUser";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="admin/users" element={<AdminUserList />} />
             <Route path="admin/adoptions" element={<AdminAdoptionsList />} />
             <Route path="/admin/newuser" element={<AddUser />} />
+            <Route path="/admin/edituser/:userId" element={<EditUser />} />
           </Routes>
         </DogContextProvider>
       </CurrentUserContextProvider>

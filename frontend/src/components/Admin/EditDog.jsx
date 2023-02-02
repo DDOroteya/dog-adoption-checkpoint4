@@ -32,7 +32,6 @@ function EditDog() {
     myHeaders.append("Content-Type", "application/json");
 
     const body = JSON.stringify(dogData);
-    console.warn(dogData);
 
     const requestOptions = {
       method: "PUT",
