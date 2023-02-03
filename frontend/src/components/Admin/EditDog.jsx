@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useCurrentUserContext } from "../../contexts/userContext";
 import back from "../../assets/back.png";
 
@@ -52,6 +54,13 @@ function EditDog() {
         .then((response) => response.text())
         .then(() => {
           navigate("/admin/dogs");
+          toast.success("Modifié avec succès !", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+          });
         })
         .catch(console.error);
   };

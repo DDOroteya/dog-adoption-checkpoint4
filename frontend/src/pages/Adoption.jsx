@@ -4,12 +4,14 @@ import DogCard from "../components/DogCard";
 import Navbar from "../components/Navbar";
 import { useDogContext } from "../contexts/DogContext";
 
+const backEnd = import.meta.env.VITE_BACKEND_URL;
+
 function Adoption() {
   const [dogs, setDogs] = useState([]);
   const { city, gender, age } = useDogContext();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dogs")
+    fetch(`${backEnd}/api/dogs`)
       .then((response) => response.json())
       .then((result) => {
         setDogs(result);

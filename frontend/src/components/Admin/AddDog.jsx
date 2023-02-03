@@ -58,7 +58,7 @@ function AddDog() {
         .then((response) => response.text())
         .then(() => {
           navigate("/admin/dogs");
-          toast("Ajouté à la liste avec succès !", {
+          toast.success("Ajouté à la liste avec succès !", {
             position: "top-center",
             autoClose: 3000,
             hideProgressBar: false,
@@ -180,7 +180,7 @@ function AddDog() {
               name="status_adopted"
               value={dataDog.status_adopted}
               onChange={handleChange}
-              placeholder="Oui / non"
+              placeholder="No"
             />
           </label>
 

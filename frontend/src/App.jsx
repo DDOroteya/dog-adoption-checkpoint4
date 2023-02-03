@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { CurrentUserContextProvider } from "./contexts/userContext";
 import { DogContextProvider } from "./contexts/DogContext";
 import Home from "./pages/Home";
@@ -36,6 +37,7 @@ function App() {
             <Route path="/admin/newuser" element={<AddUser />} />
             <Route path="/admin/edituser/:userId" element={<EditUser />} />
           </Routes>
+          <ToastContainer />
         </DogContextProvider>
       </CurrentUserContextProvider>
     </div>

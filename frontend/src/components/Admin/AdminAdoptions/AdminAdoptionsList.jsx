@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useCurrentUserContext } from "../../../contexts/userContext";
 import HeaderAdmin from "../HeaderAdmin";
 import AdminAdoptionItem from "./AdminAdoptionItem";
@@ -25,14 +24,6 @@ function AdminAdoptionsList() {
     <div>
       <HeaderAdmin />
       <div className="sm:p-7 flex flex-wrap">
-        <Link to="/admin/newuser">
-          <button
-            className="text-green-600 md:w-32 text-center font-bold p-2 mb-3 mt-5 ml-3 md:ml-0 md:mt-0 flex border border-green-600 rounded-xl hover:border-green-800 hover:bg-green-800 hover:text-white"
-            type="button"
-          >
-            Ajouter +
-          </button>
-        </Link>
         <table className="w-full text-left">
           <thead className=" text-gray-600 bg-white dark:text-gray-100">
             <tr>

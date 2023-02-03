@@ -9,7 +9,7 @@ function DogItem() {
   const { dogId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/dogs/${dogId}`)
+    fetch(`${backEnd}/api/dogs/${dogId}`)
       .then((response) => response.json())
       .then((result) => {
         setDogData(result);
