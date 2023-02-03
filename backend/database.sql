@@ -236,7 +236,7 @@ ENGINE = InnoDB;
 
 INSERT INTO
   adoption (dog_id, user_id, adoption_date)
-VALUES (5, 1, "2023-02-07"),(4, 2, "2023-02-01");
+VALUES (5, 1, '2023-02-07'),(4, 2, '2023-02-01');
 
 
 SET FOREIGN_KEY_CHECKS = 1;
