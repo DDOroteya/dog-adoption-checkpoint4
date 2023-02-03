@@ -48,7 +48,7 @@ function AddUser() {
         .then((response) => response.text())
         .then(() => {
           navigate("/admin/users");
-          toast("Ajouté à la liste avec succès !", {
+          toast.success("Ajouté à la liste avec succès !", {
             position: "top-center",
             autoClose: 3000,
             hideProgressBar: false,
